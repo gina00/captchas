@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -24,7 +25,7 @@ public class CaptchaApplication implements CommandLineRunner {
     }
 
     public static char[] ch = "A23456789".toCharArray();
-//    public static char[] ch = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuwxyz23456789".toCharArray();
+    //    public static char[] ch = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuwxyz23456789".toCharArray();
     /**
      * 生成的图片数量
      */
@@ -82,7 +83,7 @@ public class CaptchaApplication implements CommandLineRunner {
         BufferedImage img = new BufferedImage(68, 22, BufferedImage.TYPE_INT_RGB);
         //得到该图片的绘图对象
         Graphics g = img.getGraphics();
-        Random r = new Random();
+        SecureRandom r = new SecureRandom();
         Color c = new Color(255, 255, 255); //创建背景颜色
         g.setColor(c);
         //填充整个图片的颜色
@@ -107,11 +108,12 @@ public class CaptchaApplication implements CommandLineRunner {
 
     private String getText(int length) {
         int index, len = ch.length;
-        //向图片中输出数字和字母
+        // 向图片中输出数字和字母
         StringBuffer sb = new StringBuffer();
-        Random r = new Random();
+        SecureRandom r = new SecureRandom();
         for (int i = 0; i < length; i++) {
-            index = r.nextInt(len); //获取随机字符序号
+            // 获取随机字符序号
+            index = r.nextInt(len);
             sb.append(ch[index]);
         }
         return sb.toString();
