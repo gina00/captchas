@@ -95,7 +95,7 @@ public class CaptchaApplication implements CommandLineRunner {
             g.drawString("" + text.charAt(i), (i * 15) + 3, 18);// 写什么数字，在图片.
         }
 
-        //输出干扰线和点
+        // 输出干扰线和点
         for (int i = 0; i < lineNum; i++) {
             g.drawLine(r.nextInt(68), r.nextInt(22), r.nextInt(68), r.nextInt(22));
         }
