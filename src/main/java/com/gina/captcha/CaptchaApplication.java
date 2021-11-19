@@ -24,8 +24,8 @@ public class CaptchaApplication implements CommandLineRunner {
         SpringApplication.run(CaptchaApplication.class, args);
     }
 
-    public static char[] ch = "A23456789".toCharArray();
-    //    public static char[] ch = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuwxyz23456789".toCharArray();
+//    public static char[] ch = "A23456789".toCharArray();
+        public static char[] ch = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuwxyz23456789".toCharArray();
     /**
      * 生成的图片数量
      */
@@ -84,7 +84,7 @@ public class CaptchaApplication implements CommandLineRunner {
         //得到该图片的绘图对象
         Graphics g = img.getGraphics();
         SecureRandom r = new SecureRandom();
-        Color c = new Color(255, 255, 255); //创建背景颜色
+        Color c = new Color(204, 204, 204); //创建背景颜色
         g.setColor(c);
         //填充整个图片的颜色
         g.fillRect(0, 0, 68, 22);
